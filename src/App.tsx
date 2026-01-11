@@ -53,7 +53,7 @@ function App() {
             <div
               key={dot.dayNumber}
               className={`dot ${dot.isPast ? 'past' : ''} ${dot.isToday ? 'today' : ''}`}
-              title={dot.tooltip}
+              data-tooltip={dot.tooltip}
             />
           ))}
         </div>

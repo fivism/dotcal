@@ -77,8 +77,40 @@
   }
 }
 
+.dot {
+  position: relative;
+}
+
 .dot:hover {
   transform: scale(1.4);
+  z-index: 10;
+}
+
+/* Custom tooltip */
+.dot::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.625rem;
+  white-space: pre;
+  text-align: center;
+  line-height: 1.5;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+.dot:hover::after {
+  opacity: 1;
 }
 
 /* Footer */
