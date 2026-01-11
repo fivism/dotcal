@@ -26,9 +26,18 @@ function App() {
       const dayNumber = i + 1
       const isPast = dayNumber < dayOfYear
       const isToday = dayNumber === dayOfYear
-      return { dayNumber, isPast, isToday }
+      
+      // Calculate the actual date for this day
+      const date = new Date(year, 0, dayNumber)
+      const tooltip = date.toLocaleDateString('en-US', {
+        weekday: 'long',
+        month: 'short',
+        day: 'numeric',
+      })
+      
+      return { dayNumber, isPast, isToday, tooltip }
     })
-  }, [totalDays, dayOfYear])
+  }, [totalDays, dayOfYear, year])
 
   return (
     <div className="container">
@@ -43,7 +52,7 @@ function App() {
             <div
               key={dot.dayNumber}
               className={`dot ${dot.isPast ? 'past' : ''} ${dot.isToday ? 'today' : ''}`}
-              title={`Day ${dot.dayNumber} of ${totalDays}`}
+              title={dot.tooltip}
             />
           ))}
         </div>
