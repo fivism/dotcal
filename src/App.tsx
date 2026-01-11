@@ -29,11 +29,12 @@ function App() {
       
       // Calculate the actual date for this day
       const date = new Date(year, 0, dayNumber)
-      const tooltip = date.toLocaleDateString('en-US', {
+      const dateStr = date.toLocaleDateString('en-US', {
         weekday: 'long',
         month: 'short',
         day: 'numeric',
       })
+      const tooltip = `${dateStr}\nDay ${dayNumber} of ${totalDays}`
       
       return { dayNumber, isPast, isToday, tooltip }
     })
