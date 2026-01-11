@@ -127,31 +127,32 @@
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
   .calendar-wrapper {
-    padding: 1.25rem;
-    border-radius: 20px;
+    padding: 1rem;
+    border-radius: 16px;
+    width: 100%;
   }
   
   .calendar-grid {
-    grid-template-columns: repeat(15, 1fr);
+    grid-template-columns: repeat(17, 1fr);
     gap: 5px;
   }
   
   .dot {
-    width: 10px;
-    height: 10px;
+    width: 100%;
+    aspect-ratio: 1;
+    height: auto;
   }
 }
 
 @media (max-width: 400px) {
   .calendar-grid {
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(15, 1fr);
     gap: 4px;
-  }
-  
-  .dot {
-    width: 9px;
-    height: 9px;
   }
 }
 
